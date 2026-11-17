@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>초대장</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF1E6; --dot:#FFD9C2; --pink:#FF8FAB; --pink-d:#E5688A;
+  --mint:#BFEFE0; --butter:#FFE9A8; --ink:#5B3F4F; --card:#FFFDF9;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:'Jua','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  background-image:radial-gradient(var(--dot) 2.5px,transparent 2.5px);
+  background-size:26px 26px;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px 16px;min-height:100vh;
+}
+main{width:100%;max-width:440px;text-align:center}
+#mascot{width:180px;height:auto;cursor:pointer;display:block;margin:0 auto -18px;position:relative;z-index:2;
+  -webkit-tap-highlight-color:transparent}
+#mascot .body{transform-box:fill-box;transform-origin:50% 100%;animation:idle 3s ease-in-out infinite}
+#mascot .blink{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+#mascot.hop .body{animation:hop .5s ease-out}
+#look{transition:transform .12s ease-out}
+@keyframes idle{0%,100%{transform:scale(1,1)}50%{transform:scale(1.03,.97)}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes hop{0%{transform:translateY(0) scale(1,1)}35%{transform:translateY(-26px) scale(.95,1.06)}70%{transform:translateY(0) scale(1.07,.93)}100%{transform:translateY(0) scale(1,1)}}
+
+.card{
+  background:var(--card);
+  border:3px solid var(--ink);
+  border-radius:28px;
+  box-shadow:6px 6px 0 var(--ink);
+  padding:36px 24px 28px;
+}
+h1{font-weight:400;font-size:1.7rem;line-height:1.35;margin:0 0 8px;word-break:keep-all;overflow-wrap:anywhere}
+.sub{margin:0 0 22px;font-size:1.05rem;opacity:.8;word-break:keep-all}
+.who{background:var(--butter);border-radius:12px;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+.btn{
+  font:inherit;font-size:1.15rem;color:#fff;background:var(--pink);
+  border:3px solid var(--ink);border-radius:999px;padding:12px 26px;
+  box-shadow:0 4px 0 var(--ink);cursor:pointer;text-decoration:none;display:inline-block;
+  transition:transform .1s,box-shadow .1s,background .2s;
+}
+.btn:hover{background:var(--pink-d)}
+.btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--ink)}
+.btn.mint{background:var(--mint);color:var(--ink)}
+.btn.mint:hover{background:#A5E6D2}
+.btn.small{font-size:1rem;padding:8px 18px}
+:focus-visible{outline:4px solid #6BB6FF;outline-offset:3px}
+
+label{display:block;text-align:left;margin:0 0 8px 6px;font-size:1.05rem}
+input{
+  width:100%;font:inherit;font-size:1.2rem;color:var(--ink);
+  border:3px solid var(--ink);border-radius:18px;padding:12px 16px;background:#fff;margin-bottom:16px;
+}
+input::placeholder{color:#B79AA8}
+#out{margin-top:22px;text-align:left}
+#out .link{
+  background:var(--mint);border:3px dashed var(--ink);border-radius:16px;
+  padding:12px 14px;font-size:.95rem;word-break:break-all;margin:0 0 12px;
+}
+#out .actions{text-align:center}
+.again{margin-top:20px;font-size:.95rem}
+.again a{color:var(--ink)}
+[hidden]{display:none!important}
+
+.heart{position:fixed;pointer-events:none;font-size:22px;color:var(--pink);z-index:10;animation:float .9s ease-out forwards}
+@keyframes float{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--dx),-90px) scale(1.2)}}
+
+@media (prefers-reduced-motion:reduce){
+  #mascot .body,#mascot .blink,#mascot.hop .body{animation:none}
+  #look{transition:none}
+  .heart{animation-duration:.01s}
+}
+</style>
+</head>
+<body>
+<main>
+  <svg id="mascot" viewBox="0 0 200 190" role="img" aria-label="웃고 있는 노란색 고양이 캐릭터">
+    <ellipse cx="100" cy="179" rx="52" ry="7" fill="#5B3F4F" opacity=".12"/>
+    <g class="body">
+      <path d="M30 82L38 20L90 54Z" fill="#FFD84D" stroke="#5B3F4F" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M170 82L162 20L110 54Z" fill="#FFD84D" stroke="#5B3F4F" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M46 66L48 38L74 54Z" fill="#FFB3C6" stroke-linejoin="round"/>
+      <path d="M154 66L152 38L126 54Z" fill="#FFB3C6" stroke-linejoin="round"/>
+      <ellipse cx="100" cy="112" rx="76" ry="62" fill="#FFD84D" stroke="#5B3F4F" stroke-width="4"/>
+      <path d="M100 52V68M85 56L88 69M115 56L112 69" fill="none" stroke="#E0A800" stroke-width="5" stroke-linecap="round"/>
+      <g id="look">
+        <g class="blink">
+          <ellipse cx="70" cy="108" rx="9" ry="11" fill="#5B3F4F"/>
+          <ellipse cx="130" cy="108" rx="9" ry="11" fill="#5B3F4F"/>
+          <circle cx="73" cy="104" r="3.5" fill="#fff"/>
+          <circle cx="133" cy="104" r="3.5" fill="#fff"/>
+        </g>
+      </g>
+      <ellipse cx="48" cy="128" rx="11" ry="6" fill="#FF8A5C" opacity=".4"/>
+      <ellipse cx="152" cy="128" rx="11" ry="6" fill="#FF8A5C" opacity=".4"/>
+      <path d="M94 119Q100 115 106 119Q100 126 94 119Z" fill="#FF8FAB" stroke="#5B3F4F" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M100 125V129M100 129Q93 137 86 130M100 129Q107 137 114 130" fill="none" stroke="#5B3F4F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 116L42 121M20 132L42 128M180 116L158 121M180 132L158 128" fill="none" stroke="#5B3F4F" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </svg>
+
+  <!-- 초대 화면: 링크에 ?from=이름 이 있을 때 -->
+  <section id="invite" class="card" hidden>
+    <h1><span class="who" id="who"></span> 님이<br>초대했어요!</h1>
+    <p class="sub" id="serverLine"></p>
+    <a class="btn" id="join" href="#" target="_blank" rel="noopener">같이 놀러 가기</a>
+    <p class="again"><a id="makeOwn" href="./">나도 초대링크 만들기</a></p>
+  </section>
+
+  <!-- 생성 화면: ?from= 이 없을 때 -->
+  <section id="make" class="card" hidden>
+    <h1>내 초대링크 만들기</h1>
+    <p class="sub">이름을 적으면 나만의 링크가 생겨요.</p>
+    <label for="name">이름</label>
+    <input id="name" maxlength="20" autocomplete="off" placeholder="예: 홍길동">
+    <button class="btn" id="go" type="button">링크 만들기</button>
+    <div id="out" hidden>
+      <p class="link" id="link"></p>
+      <div class="actions"><button class="btn mint small" id="copy" type="button">링크 복사하기</button></div>
+    </div>
+    <p class="again"><a id="join2" href="#" target="_blank" rel="noopener">서버에 바로 들어가기</a></p>
+  </section>
+</main>
+
+<script>
+// ★ 여기만 본인 걸로 바꾸세요
+const SERVER_NAME = '누룽지의 주방';
+const INVITE_URL  = 'https://discord.gg/tcyWjcSZVp';
+
+const $ = id => document.getElementById(id);
+const from = (new URLSearchParams(location.search).get('from') || '').trim().slice(0, 20);
+
+// 영구 초대링크로 가는 링크 (초대 화면 버튼 + 생성 화면 링크)
+$('join').href = INVITE_URL;
+$('join2').href = INVITE_URL;
+
+if (from) {
+  $('invite').hidden = false;
+  $('who').textContent = from;               // textContent: 악성 문자열 방지
+  $('serverLine').textContent = SERVER_NAME + '에서 기다리고 있대요.';
+  document.title = from + ' 님의 초대장';
+} else {
+  $('make').hidden = false;
+}
+
+function makeLink() {
+  const name = $('name').value.trim();
+  if (!name) { $('name').focus(); return; }
+  $('link').textContent = location.origin + location.pathname + '?from=' + encodeURIComponent(name);
+  $('out').hidden = false;
+  $('copy').textContent = '링크 복사하기';
+  hop();
+}
+
+async function copyLink() {
+  const text = $('link').textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (e) {
+    const t = document.createElement('textarea');
+    t.value = text; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (_) {}
+    t.remove();
+  }
+  $('copy').textContent = '복사했어요!';
+  hop();
+}
+
+$('go').addEventListener('click', makeLink);
+$('name').addEventListener('keydown', e => { if (e.key === 'Enter') makeLink(); });
+$('copy').addEventListener('click', copyLink);
+
+// 몽글이: 눈이 포인터를 따라가고, 누르면 폴짝 + 하트
+const mascot = $('mascot'), look = $('look');
+document.addEventListener('pointermove', e => {
+  const r = mascot.getBoundingClientRect();
+  const dx = e.clientX - (r.left + r.width / 2);
+  const dy = e.clientY - (r.top + r.height / 2);
+  const d = Math.hypot(dx, dy) || 1;
+  const k = Math.min(1, d / 200) * 5;
+  look.style.transform = 'translate(' + (dx / d * k) + 'px,' + (dy / d * k) + 'px)';
+});
+
+function hop() {
+  mascot.classList.remove('hop');
+  void mascot.getBoundingClientRect();
+  mascot.classList.add('hop');
+  const r = mascot.getBoundingClientRect();
+  for (let i = 0; i < 4; i++) {
+    const h = document.createElement('span');
+    h.className = 'heart';
+    h.textContent = '♥';
+    h.style.left = (r.left + r.width * (0.25 + Math.random() * 0.5)) + 'px';
+    h.style.top = (r.top + 20) + 'px';
+    h.style.setProperty('--dx', (Math.random() * 60 - 30) + 'px');
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 900);
+  }
+}
+mascot.addEventListener('click', hop);
+</script>
+</body>
+</html>
