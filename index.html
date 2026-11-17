@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초대장</title>
+<meta name="description" content="같이 놀러 가요! 디스코드 서버 초대장">
+<meta name="theme-color" content="#FF8FAB">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="초대장">
+<meta property="og:title" content="초대장">
+<meta property="og:description" content="같이 놀러 가요! 눌러서 디스코드 서버에 들어오세요.">
+<meta property="og:url" content="https://nurxngjikitchen.pages.dev/">
+<meta property="og:image" content="https://nurxngjikitchen.pages.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nurxngjikitchen.pages.dev/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
@@ -109,8 +121,8 @@ input::placeholder{color:#B79AA8}
 
 <script>
 // ★ 여기만 본인 걸로 바꾸세요
-const SERVER_NAME = '누룽지의 주방';
-const INVITE_URL  = 'https://discord.gg/tcyWjcSZVp';
+const SERVER_NAME = '우리 서버';
+const INVITE_URL  = 'https://discord.gg/초대코드';
 
 const $ = id => document.getElementById(id);
 const from = (new URLSearchParams(location.search).get('from') || '').trim().slice(0, 20);
@@ -175,6 +187,8 @@ function hop() {
   }
 }
 mascot.addEventListener('click', hop);
+// 폴짝 끝나면 hop 클래스 제거 → 다시 숨쉬기 모션 재개
+mascot.addEventListener('animationend', e => { if (e.animationName === 'hop') mascot.classList.remove('hop'); });
 </script>
 </body>
 </html>
